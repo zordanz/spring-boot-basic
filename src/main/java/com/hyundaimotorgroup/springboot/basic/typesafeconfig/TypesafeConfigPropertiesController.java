@@ -1,6 +1,8 @@
 package com.hyundaimotorgroup.springboot.basic.typesafeconfig;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.data.redis.RedisConnectionDetails;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,14 +13,17 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
 
+@Slf4j
 @RestController
 @RequestMapping("/config")
 @RequiredArgsConstructor
 public class TypesafeConfigPropertiesController {
     private final AppProperties appProperties;
+    private final RedisConnectionDetails redisConnectionDetails;
 
     @GetMapping("/owner")
     public PersonProperties getOwner() {
+        log.info("redisConnectionDetails: {}", redisConnectionDetails);
         return appProperties.owner();
     }
 
