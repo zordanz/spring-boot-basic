@@ -6,7 +6,6 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.DynamicPropertyRegistrar;
 import org.testcontainers.utility.DockerImageName;
 
 // FIXME: 2. Redis Testcontainers 설정
@@ -19,14 +18,5 @@ public class ContainersConfiguration {
     @ServiceConnection
     public RedisContainer redisContainer() {
         return new RedisContainer(DockerImageName.parse("redis:6.2.6"));
-    }
-
-    // FIXME: 2-1. Redis 서버 접속 정보를 동적으로 애플리케이션 환경 속성으로 설정
-    @Bean
-    public DynamicPropertyRegistrar redisProperties(RedisContainer container) {
-        return (properties) -> {
-            properties.add("spring.data.redis.host", container::getHost);
-            properties.add("spring.data.redis.port", container::getFirstMappedPort);
-        };
     }
 }
