@@ -19,11 +19,9 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class TypesafeConfigPropertiesController {
     private final AppProperties appProperties;
-    private final RedisConnectionDetails redisConnectionDetails;
 
     @GetMapping("/owner")
     public PersonProperties getOwner() {
-        log.info("redisConnectionDetails: {}", redisConnectionDetails);
         return appProperties.owner();
     }
 
@@ -36,6 +34,7 @@ public class TypesafeConfigPropertiesController {
     @Cacheable(value = "staffs", key = "#name")
     @GetMapping("/staffs/{name}")
     public PersonProperties getStaff(@PathVariable String name) {
+        log.info("Call to staffs: {}", name);
         return Optional.ofNullable(appProperties.staffs().get(name))
             .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "staff not found"));
     }
