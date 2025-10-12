@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "spring.config.source",
+      "type": "java.lang.String",
+      "description": "spring config 위치"
+  }
+] }
