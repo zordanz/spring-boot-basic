@@ -1,1 +1,1 @@
-org.springframework.context.ApplicationListener=com.hyundaimotorgroup.springboot.basic.LifeCycleListener
+org.springframework.context.ApplicationListener=com.hyundaimotorgroup.springboot.basic.lifecycle.LifeCycleListener
