@@ -18,7 +18,7 @@ public class TypesafeConfigPropertiesController {
     }
 
     @GetMapping("/manager")
-    public PersonProperties getManag() {
+    public PersonProperties getManager() {
         // TODO: 3. Manager API 완성하기
         return null;
     }
