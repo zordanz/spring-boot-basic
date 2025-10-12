@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotEmpty;
 
 import java.io.Serializable;
 
-public record PersonProperties(@NotEmpty String firstName, @NotEmpty String lastName) {
+public record PersonProperties(@NotEmpty String firstName,
+                               @NotEmpty String lastName) implements Serializable {
 
 }

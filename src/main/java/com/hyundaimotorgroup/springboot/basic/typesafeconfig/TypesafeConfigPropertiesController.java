@@ -28,6 +28,7 @@ public class TypesafeConfigPropertiesController {
     }
 
     // TODO: 1. API 응답에 캐시 활성화. Hint: @Cacheable
+    @Cacheable(value = "staffs", key = "#name")
     @GetMapping("/staffs/{name}")
     public PersonProperties getStaff(@PathVariable String name) {
         return Optional.ofNullable(appProperties.staffs().get(name))
