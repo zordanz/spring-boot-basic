@@ -5,8 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.availability.AvailabilityChangeEvent;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
+import org.springframework.stereotype.Component;
 
-// TODO: Annotating @Component and Unregister ApplicationListener on spring.factories
+@Component
 @SuppressWarnings("rawtypes")
 @Slf4j
 public class LifeCycleListener implements ApplicationListener {
