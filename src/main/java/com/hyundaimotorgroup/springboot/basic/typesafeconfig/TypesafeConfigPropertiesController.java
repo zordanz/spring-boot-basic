@@ -13,13 +13,11 @@ public class TypesafeConfigPropertiesController {
 
     @GetMapping("/owner")
     public PersonProperties getOwner() {
-        // TODO: 2. Owner API 완성하기
-        return null;
+        return appProperties.owner();
     }
 
     @GetMapping("/manager")
     public PersonProperties getManager() {
-        // TODO: 3. Manager API 완성하기
-        return null;
+        return appProperties.manager();
     }
 }
