@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class TypesafeConfigPropertiesController {
     private final PersonProperties personProperties;
 
-    // TODO: 4. PersonProperties 확인
     @GetMapping("/owner")
     public PersonProperties getConfigSource() {
         return personProperties;
