@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.ActiveProfiles;
 import org.testcontainers.utility.DockerImageName;
 
-// FIXME: 2. Redis Testcontainers 설정
 @ActiveProfiles("redis")
 @TestConfiguration(proxyBeanMethods = false)
 public class ContainersConfiguration {
