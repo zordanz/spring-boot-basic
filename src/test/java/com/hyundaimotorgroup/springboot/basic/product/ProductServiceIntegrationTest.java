@@ -15,6 +15,7 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// FIXME: 2. ProductServiceIntegrationTest
 @SpringBootTest
 @ActiveProfiles("redis")
 @Import(ContainersConfiguration.class)

@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+// FIXME: 1-3. ProductService on Redis
 @Profile(value = "redis")
 @Service
 @RequiredArgsConstructor

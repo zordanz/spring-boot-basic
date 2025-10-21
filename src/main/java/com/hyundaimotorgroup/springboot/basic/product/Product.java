@@ -8,6 +8,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 
+// FIXME: 1-1. Product
 @Getter
 @AllArgsConstructor
 public class Product {
