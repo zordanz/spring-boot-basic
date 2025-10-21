@@ -7,6 +7,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Import;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.Collections;
@@ -17,7 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(controllers = TypesafeConfigPropertiesController.class)
 // TODO 1. TypesafeConfigPropertiesControllerTest는 AppProperties에 의존하고 있습니다. 해당 의존성을 해결하세요
-// Hint: @Import
+// Hint: @MockitoBean or @Import 설정으로 Bean 주입
 class TypesafeConfigPropertiesControllerTest {
 
     // TODO 2. mockMvc를 이용해서 테스트를 작성하세요.
