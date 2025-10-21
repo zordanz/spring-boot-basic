@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Optional;
+
 @Profile("redis")
 @RestController
 @RequestMapping("/products")
@@ -16,13 +18,10 @@ import org.springframework.web.server.ResponseStatusException;
 public class ProductController {
     private final ProductService productService;
 
+    // FIXME 1: /products/{id} API 확인
     @GetMapping("/{id}")
     public Product getProduct(@PathVariable String id) {
-        try {
-            return productService.findById(id);
-        } catch (RuntimeException e) {
-            // Translate service-level exception to HTTP 404
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
-        }
+        return Optional.ofNullable(productService.findById(id))
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product service not found"));
     }
 }
