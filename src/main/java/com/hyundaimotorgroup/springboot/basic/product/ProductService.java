@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-// FIXME: 1-3. ProductService on Redis
 @Profile(value = "redis")
 @Service
 @RequiredArgsConstructor
@@ -19,8 +18,7 @@ public class ProductService {
 
     @Transactional(readOnly = true)
     public Product findById(String id) {
-        return repository.findById(id)
-            .orElseThrow(() -> new RuntimeException("Product not found"));
+        return repository.findById(id).orElse(null);
     }
 
     @Transactional

@@ -15,10 +15,10 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-// FIXME: 2. ProductServiceIntegrationTest
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 @ActiveProfiles("redis")
 @Import(ContainersConfiguration.class)
@@ -61,8 +61,7 @@ class ProductServiceIntegrationTest {
         // Act - remove
         productService.remove(id);
 
-        // Assert - find after delete throws
-        RuntimeException ex = assertThrows(RuntimeException.class, () -> productService.findById(id));
-        assertTrue(ex.getMessage().contains("Product not found"));
+        // Assert - find after returns null
+        assertNull(productService.findById(id));
     }
 }
