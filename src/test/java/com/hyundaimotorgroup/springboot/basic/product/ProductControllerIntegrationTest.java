@@ -21,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
-// TODO: 1-1. mockMvc가 준비되어야해요. Hint: @AutoConfigure*
+// TODO: 1-1. mockMvc가 준비되어야해요. Hint: @AutoConfigure*******
 // TODO: 1-2. redis 프로필인 경우에만 실행되어야해요.
 // TODO: 1-3. redis 컨테이너 설정이 포함되어야해요. ContainersConfiguration
 class ProductControllerIntegrationTest {
