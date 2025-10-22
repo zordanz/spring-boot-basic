@@ -8,9 +8,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.ActiveProfiles;
 import org.testcontainers.utility.DockerImageName;
 
-// FIXME: 2. Redis Testcontainers 설정
-@ActiveProfiles("redis")
+
+// FIXME: 2-1. Redis Testcontainers 설정
 @TestConfiguration(proxyBeanMethods = false)
+// FIXME: 2-2. TestContext 인 경우에만 redis 프로필이 활성화 되요.
+//             Development-time Services 예시는 TestContext가 없어서 작동 안 되요.
+@ActiveProfiles("redis")
 public class ContainersConfiguration {
 
     @Bean
